@@ -44,7 +44,7 @@ console.log("C");
 
 不难发现，**得到机会**很重要！这也就可以解释用 setTimeout 延迟 1000 不一定是准确的，而是会至少延迟一秒。因为如果还有其他的任务在前面，它要等待那些任务对应的消息都出队，也就是程序都执行完成，它才能将 callback 放入队列。也就是实际延迟会大于或等于一秒。
 
-通常所说的触发了一个事件，就是指这个 event listener 得到了执行。与 setTimeout 这个例子中的概念一样，这也是一次 chunk 的执行。像这样一个一个执行 chunk 的过程就叫 Event Loop。
+通常所说的触发了一个事件，就是指这个 event listener 得到了执行。与 setTimeout 这个例子中的概念一样，这也是一次 chunk 的执行。像这样一个一个执行 chunk 的过程就叫 **Event Loop**。
 
 还有一个经常提到的概念叫「无阻塞」，JavaScript 中的无阻塞就是指这种 Event Loop 模型。除去 alert 或同步 Ajax 请求等历史原因造成的问题，程序总是不会出现阻塞；也就是说 JavaScript Engine 总是可以处理下一个任务，如处理用户对浏览器的操作。
 
