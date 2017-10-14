@@ -2,7 +2,7 @@ title: 解释“闭包”需要几行代码？
 date: 2013-06-16 12:21:53
 comments: true
 categories: 编程
-tags: [闭包, 对象, JavaScript]
+tags: [closure, 对象, JavaScript]
 ---
 
 关于什么是闭包，很多“高手”会给出一段“特权函数”访问外部作用域变量的 JavaScript 代码，并且告诉你，闭包就是局部变量在函数返回之后继续存在。
