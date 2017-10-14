@@ -116,7 +116,7 @@ sub 就是 func 这一返回值，func 定义在 fn 内部并且被传递出来�
 ## 参考资料
 
 [You Don't Know JS: Scope & Closures](https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20%26%20closures/ch2.md)  
-[Context (computing)](https://en.wikipedia.org/wiki/Context_(computing))  
-[Scope (computer science)](https://en.wikipedia.org/wiki/Scope_(computer_science))  
+[Context (computing)](https://en.wikipedia.org/wiki/Context_%28computing%29)  
+[Scope (computer science)](https://en.wikipedia.org/wiki/Scope_%28computer_science%29)  
 [Function.prototype.bind()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)  
 [Function _.bind()](https://lodash.com/docs/4.17.4#bind)  
