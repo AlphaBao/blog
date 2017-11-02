@@ -157,7 +157,9 @@ console.log("AA");
 
 文章开头，我说「简单地说，JavaScript 是单线程执行的语言」，现在可以说得稍微复杂一点了：JavaScript Engine 对 JavaScript 程序的执行是单线程的，但是 JavaScript Runtime（整个宿主环境）并不是单线程的；而且，几乎所有的异步任务都是并发的，例如多个 Job Queue、Ajax、Timer、I/O(Node)等等。
 
-上面说的是 JavaScript Runtime 层面，JavaScript 执行本身，也有一些特殊情况，例如：一个 Web Worker 或者一个**跨域的** iframe，也是独立的线程，有各自的内存空间（栈、堆）以及 Event Loop Queue。要与这些不同的线程通信，只能通过 postMessage。一次 postMessage 就是在另一个线程的 Event Loop Queue 中加入一条消息。
+上面说的是 JavaScript Runtime 层面，从开发者的 JavaScript 代码执行层面来说，也有一些特殊情况，例如：一个 Web Worker，是一个独立的线程，有自己的内存空间（栈、堆）以及 Event Loop Queue。要与这样的不同的线程通信，只能通过 postMessage。一次 postMessage 就是在另一个线程的 Event Loop Queue 中加入一条消息。
+
+而一个**跨域的** iframe 中，JavaScript 也有单独的内存空间（栈、堆）以及 Event Loop Queue，也只能通过 postMessage 与它通信。至于它与主页面是否运行在同一线程内，取决于浏览器的实现（目前是在同一线程内）。
 
 
 ## 参考资料
