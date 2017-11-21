@@ -258,9 +258,10 @@ mathjax:
 ##  type: button
 
 # Share
-jiathis:
 # Warning: JiaThis does not support https.
-add_this_id: 2149398
+jiathis:
+  enable: true
+# add_this_id: 0
 
 # Share
 #duoshuo_share: true
