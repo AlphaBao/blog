@@ -116,6 +116,7 @@ var BinarySearchTree = function() {
     while (list.length > 0) {
       node = list.shift();
 
+      // 遇到结束信号，表示已经遍历完一层；若队列中还有元素，说明它们是刚刚遍历完的这一层的所有子元素。
       if (node === END_FLAG && list.length > 0) {
         list.push(END_FLAG);
         cb(separator);
@@ -447,6 +448,7 @@ class BinarySearchTree {
     while (list.length > 0) {
       node = list.shift();
 
+      // 遇到结束信号，表示已经遍历完一层；若队列中还有元素，说明它们是刚刚遍历完的这一层的所有子元素。
       if (node === END_FLAG && list.length > 0) {
         list.push(END_FLAG);
         cb(separator);
