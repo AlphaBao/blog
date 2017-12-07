@@ -284,10 +284,5 @@ show(quickSort);
 
 ## 参考资料
 
-[学习JavaScript数据结构与算法（第2版）](http://www.ituring.com.cn/book/2029)
-[Sorting algorithm](https://en.wikipedia.org/wiki/Sorting_algorithm)
-
-
-
-
-
+1. [学习JavaScript数据结构与算法（第2版）](http://www.ituring.com.cn/book/2029)
+2. [Sorting algorithm](https://en.wikipedia.org/wiki/Sorting_algorithm)
