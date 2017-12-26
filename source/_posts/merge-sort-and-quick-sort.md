@@ -125,9 +125,9 @@ show(bubbleSort);
 // ------------------------------------------                                      
 // Method: bubbleSort                                                              
 // ------------------------------------------                                      
-// before:                                                                         
-// 35,8,2,2,8,1,3,4,2,10,4                                                         
-// after:                                                                          
+// before:
+// 35,8,2,2,8,1,3,4,2,10,4
+// after:
 // 1,2,2,2,3,4,4,8,8,10,35
 ```
 
@@ -136,7 +136,49 @@ show(bubbleSort);
 1. 遍历数组
 2. 做第二层遍历，从前到后依次对比相邻两项，前一项的值大于后一项，则交换（冒泡）。第一遍冒泡，将最大的元素值冒泡至最后
 3. 由于每一遍冒泡都确定一个当前最大值并放到当前范围的最后的位置，每一遍的冒泡就可以少检查一个位置
-4. 可以使用一个变量记录当前一遍的冒泡有没有产生元素交换，如果没有，说明当前已经是排序完成的状态，终止循环。
+4. 可以使用一个变量记录当前一遍的冒泡有没有产生元素交换，如果没有，说明当前已经是排序完成的状态，终止循环
+
+
+## 热身三：插入排序
+
+插入排序的思想在日常生活其实很常见，例如如何排定卢俊义的座次？综合出身、能力、江湖地位、形势人心等各项指标，他在梁山泊排名第二，地位仅次于宋江。这就是插入排序的思路。数据量很小，或类似“给卢俊义排座次”这种在已排序数据中增加一条数据的情况，插入排序优于本文提到的其他排序方式。
+
+```javascript
+function insertionSort(array) {
+  for (let i = 0, len = array.length; i < len; i++) {
+    let j = i;
+    const temp = array[i]
+
+    while (j > 0 && array[j - 1] > temp) {
+      array[j] = array[j - 1];
+      j--;
+    }
+
+    array[j] = temp;
+  }
+
+  return array;
+}
+
+show(insertionSort);
+
+// ------------------------------------------                                      
+// Method: insertionSort                                                              
+// ------------------------------------------                                      
+// before:
+// 3,8,68,30,28,56,35,30,2,4,13
+// after:
+// 2,3,4,8,13,28,30,30,35,56,68
+```
+
+实现解析：
+
+1. 从第一个元素开始，该元素可以认为已经被排序
+2. 取出下一个元素，在已经排序的元素序列中从后向前扫描
+3. 如果该元素（已排序）大于新元素，将该元素移到下一位置
+4. 重复步骤3，直到找到已排序的元素小于或者等于新元素的位置
+5. 将新元素插入到该位置后
+6. 重复步骤2~5
 
 
 ## 归并排序（递归实现）
@@ -236,18 +278,18 @@ function quickSort(unsorted) {
   }
 
   function quick(array, left, right) {
-    let index = 0;
+    if (array.length <= 1) {
+      return array;
+    }
 
-    if (array.length > 1) {
-      index = partition(array, left, right);
+    const index = partition(array, left, right);
 
-      if (left < index - 1) {
-        quick(array, left, index - 1);
-      }
+    if (left < index - 1) {
+      quick(array, left, index - 1);
+    }
 
-      if (right > index) {
-        quick(array, index, right);
-      }
+    if (right > index) {
+      quick(array, index, right);
     }
 
     return array;
