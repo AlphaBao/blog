@@ -27,25 +27,21 @@ categories: 编程
 ```javascript
 function selectionSort(array) {
   const len = array.length;
-  let minIndex = 0;
 
-  for (let i = 0; i < len; i++) {
-    minIndex = i;
+  for (let i = 0; i < len - 1; i++) {
+    let min = i;
 
-    for (let j = i; j < len; j++) {
-      if (array[minIndex] > array[j]) {
-        minIndex = j;
+    for (let j = i + 1; j < len; j++) {
+      if (array[min] > array[j]) {
+        min = j;
       }
     }
 
-    if (i !== minIndex) {
-      [ array[i], array[minIndex] ] = [ array[minIndex], array[i] ];
-    }
+    [ array[min], array[i] ] = [ array[i], array[min] ];
   }
 
   return array;
 }
-
 ```
 
 实现解析：
@@ -105,6 +101,7 @@ show(selectionSort);
 function bubbleSort(array) {
   for (let first = 0, len = array.length; first < len; first++) {
     let isSorted = true;
+
     for (let second = 0; second < len - first - 1; second++) {
       if (array[second] > array[second + 1]) {
         let temp = array[second];
@@ -113,6 +110,7 @@ function bubbleSort(array) {
         isSorted = false;
       }
     }
+
     if (isSorted) {
       break;
     }
