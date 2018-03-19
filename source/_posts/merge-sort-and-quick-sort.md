@@ -115,6 +115,7 @@ function bubbleSort(array) {
       break;
     }
   }
+
   return array;
 }
 

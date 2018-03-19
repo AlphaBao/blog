@@ -109,7 +109,7 @@ JavaScript 的情况比 CSS 要更复杂一些。观察下面的代码：
 <p>Rage, rage against the dying of the light.</p>
 ```
 
-这样的 script 标签会阻塞 HTML 解析，无论是不是 inline-script。上面的 P 标签会从上到下解析，这个过程会被两段 JavaScript 分别打算一次（加载、执行）。
+这样的 script 标签会阻塞 HTML 解析，无论是不是 inline-script。上面的 P 标签会从上到下解析，这个过程会被两段 JavaScript 分别打断一次（加载并且执行的时间段内）。
 
 所以实际工程中，我们常常将资源放到文档底部。
 
