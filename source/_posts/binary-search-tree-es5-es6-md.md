@@ -289,7 +289,7 @@ var tree = new BinarySearchTree();
  *           /        \
  *          /          \
  *         /            \
- *        7              5
+ *        7             15
  *       / \           /   \
  *      /   \         /     \
  *     5     9       13     20
@@ -598,7 +598,7 @@ const tree = new BinarySearchTree();
  *           /        \
  *          /          \
  *         /            \
- *        7              5
+ *        7             15
  *       / \           /   \
  *      /   \         /     \
  *     5     9       13     20
