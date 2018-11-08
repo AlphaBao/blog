@@ -84,7 +84,7 @@ public interface IState {
 }
 ```
 
-**Bruce.java**
+**BruceState.java**
 
 ```Java
 package com.tianfangye.state;
@@ -107,7 +107,7 @@ public class BruceState implements IState {
 }
 ```
 
-**Batman.java**
+**BatmanState.java**
 
 ```Java
 package com.tianfangye.state;
