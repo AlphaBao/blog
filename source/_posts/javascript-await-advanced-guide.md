@@ -77,7 +77,7 @@ f3();
 
 ### 处理异常
 
-如果 Promise 的执行中发生 reject，await 位置将抛出异常，reject 的值可以被 try catch 捕获。
+如果 Promise 的执行中发生 reject，await 位置将抛出异常，reject 的值可以被 try catch 捕获。这里还可以看出，应该尽量抛出原生 Error，否则会丢失错误堆栈信息，而且 catch 到的值如果是各种类型都可能出现，处理起来也会更复杂。
 
 ```javascript
 async function f4() {
@@ -89,8 +89,6 @@ async function f4() {
 }
 
 f4();
-
-// 这里可以看出在应该尽量抛出原生 Error，否则会丢失错误堆栈信息，而且 catch 到的值如果是各种类型都可能出现，处理起来也会更复杂。
 ```
 
 需要注意的是如果没有 await 操作符，即使在 return 语句中也无法被 try catch 捕获。不能捕获的原因，可以理解为没有使用 await 将异步操作“同步化”。
@@ -122,7 +120,25 @@ async function f4() {
 f4();
 ```
 
-更形象的一个例子是这样，意图是总能得到一个 response 值（除非 promisedFunction 中存在不受 Promise 流程控制的 setTimeout 之类的异步流程）。
+如果 Promise 中存在不受 Promise 流程控制的 setTimeout 之类的异步流程，并且发生异常，下面两种 catch 均不能捕获。
+
+```javascript
+async function f4() {
+  try {
+    var z = await Promise
+      .resolve(setTimeout(() => {
+        throw new Error();
+      }))
+      .catch(e => e);
+  } catch(e) {
+    console.error(e); // 不会到达这里
+  }
+}
+
+f4(); // Uncaught Error
+```
+
+更容易理解的一个例子是这样，意图是总能得到一个 response 值。
 
 ```javascript
 var response = await promisedFunction().catch((err) => { console.error(err); });
