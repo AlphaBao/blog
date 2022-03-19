@@ -47,9 +47,9 @@ CSRF 的存在是由于 Cookie 架构的设计“非常古老”，已经有些�
 ## Forge GET
 
 ```html
-<a href="[http://mysite.com/transfer.do?acct=MARIA&amount=100000">View](http://mysite.com/transfer.do?acct=MARIA&amount=100000">View) my Pictures!</a>
+<a href="http://mysite.com/transfer.do?acct=MARIA&amount=100000">View my Pictures!</a>
 
-<img src="[http://mysite.com/transfer.do?acct=MARIA&amount=100000](http://mysite.com/transfer.do?acct=MARIA&amount=100000)" width="0" height="0" border="0”>
+<img src="http://mysite.com/transfer.do?acct=MARIA&amount=100000" width="0" height="0" border="0">
 ```
 
 ## Forge POST
@@ -220,7 +220,7 @@ JSON 劫持是指通过 script 标签可以载入跨域资源的特性，获取�
 
 攻击者可以在自己的站点通过 script 标签载入接口数据。
 
-```
+```html
 <script src="http://www.mysite.com/api/getXXX"></script>
 ```
 
